@@ -1,0 +1,204 @@
+--Kevin Litchmore
+--DROP SEQUENCE
+DROP SEQUENCE partner_co_seq;
+DROP SEQUENCE cost_seq;
+DROP SEQUENCE department_seq;
+DROP SEQUENCE project_seq;
+DROP SEQUENCE employee_seq;
+DROP SEQUENCE company_seq;
+--DROP TABLES
+DROP TABLE costevaluations_log;
+DROP TABLE empevaluations_log;
+DROP TABLE project;
+DROP TABLE partner_co;
+DROP TABLE cost1;
+DROP TABLE employee;
+DROP TABLE department;
+DROP TABLE company;
+--DDL Starts
+--CREATING TABLES
+CREATE TABLE company
+        (
+                company_id      NUMBER               ,
+                name            VARCHAR(255) NOT NULL,
+                address         VARCHAR(255)         ,
+                dsn_phone       VARCHAR(255)         ,
+                emergency_phone VARCHAR(255)         ,
+                CONSTRAINT company_pk PRIMARY KEY ( company_id )
+        )
+;
+CREATE TABLE department
+        (
+                dept_id          NUMBER               ,
+                budget           DECIMAL              ,
+                department_email VARCHAR2(50)         ,
+                name             VARCHAR(255) NOT NULL,
+                phone            VARCHAR(255)         ,
+                CONSTRAINT department_pk PRIMARY KEY ( dept_id )
+        )
+;
+CREATE TABLE employee
+        (
+                employee_id NUMBER               ,
+                name        VARCHAR(255) NOT NULL,
+                address     VARCHAR(255)         ,
+                start_date  DATE                 ,
+                phone       VARCHAR(255)         ,
+                CONSTRAINT employee_pk PRIMARY KEY ( employee_id )
+        )
+;
+CREATE TABLE cost1
+        (
+                cost_id         NUMBER      ,
+                approval_date   DATE        ,
+                approval_status VARCHAR(255),
+                fixed_budget    NUMBER      ,
+                variable_budget NUMBER      ,
+                CONSTRAINT cost_pk PRIMARY KEY ( cost_id )
+        )
+;
+CREATE TABLE partner_co
+        (
+                partner_id NUMBER                                  ,
+                name       VARCHAR(255) NOT NULL                   ,
+                dsn_phone  VARCHAR(255)                            ,
+                cost_id    NUMBER                                  ,
+                project_id NUMBER                                  ,
+                CONSTRAINT partner_co_pk PRIMARY KEY ( partner_id ),
+                CONSTRAINT partner_co_cost_fk FOREIGN KEY ( cost_id ) REFERENCES cost1 ( cost_id )
+        )
+;
+CREATE TABLE project
+        (
+                project_id NUMBER                               ,
+                name       VARCHAR(255) NOT NULL                ,
+                startdate  DATE                                 ,
+                enddate    DATE                                 ,
+                cost_id    NUMBER                               ,
+                CONSTRAINT project_pk PRIMARY KEY ( project_id ),
+                CONSTRAINT project_cost_fk FOREIGN KEY ( cost_id ) REFERENCES cost1 ( cost_id )
+        )
+;
+CREATE TABLE empevaluations_log
+        (
+                attempted_by VARCHAR2(50),
+                log_date     DATE        ,
+                action       VARCHAR2(50)
+        )
+;
+CREATE TABLE costevaluations_log
+        (
+                attempted_by VARCHAR2(50),
+                log_date     DATE        ,
+                action       VARCHAR2(50)
+        )
+;
+--CREATED INDEX FOR DATABASE SINCE COLUMNS ARE USED IN FOREIGN KEY. OTHER INDEX NOT NEEDED.
+CREATE INDEX partner_co_cost_ix
+ON partner_co
+        (
+                cost_id
+        )
+;
+CREATE INDEX project_cost_ix
+ON project
+        (
+                cost_id
+        )
+;
+--CREATION OF SEQUENCES
+CREATE SEQUENCE company_seq
+START WITH 1 INCREMENT BY 1 MINVALUE 1 MAXVALUE 1000 NOCYCLE NOCACHE;
+CREATE SEQUENCE employee_seq
+START WITH 1 INCREMENT BY 1 MINVALUE 1 MAXVALUE 1000 NOCYCLE NOCACHE;
+CREATE SEQUENCE project_seq
+START WITH 1 INCREMENT BY 1 MINVALUE 1 MAXVALUE 1000 NOCYCLE NOCACHE;
+CREATE SEQUENCE department_seq
+START WITH 1 INCREMENT BY 1 MINVALUE 1 MAXVALUE 1000 NOCYCLE NOCACHE;
+CREATE SEQUENCE cost_seq
+START WITH 1 INCREMENT BY 1 MINVALUE 1 MAXVALUE 1000 NOCYCLE NOCACHE;
+CREATE SEQUENCE partner_co_seq
+START WITH 1 INCREMENT BY 1 MINVALUE 1 MAXVALUE 1000 NOCYCLE NOCACHE;
+--CREATION OF TRIGGER WHEN EMPLOYEE IS UPDATED OR DELETED
+CREATE OR REPLACE TRIGGER employee_added
+        AFTER UPDATE OR DELETE ON employee
+FOR EACH ROW
+DECLARE
+        log_action VARCHAR2(50);
+BEGIN
+        log_action :=
+        CASE
+        WHEN
+                updating
+        THEN
+                'UPDATE'
+        WHEN
+                deleting
+        THEN
+                'DELETE'
+        END;
+        INSERT INTO empevaluations_log
+                (
+                        attempted_by,
+                        log_date    ,
+                        action
+                )
+        VALUES
+                (
+                        user   ,
+                        sysdate,
+                        log_action
+                )
+        ;
+END;
+/
+--CREATION OF TRIGGER WHEN COST IS UPDATED OR DELETED
+CREATE OR REPLACE TRIGGER costeval1
+        AFTER UPDATE OR DELETE ON cost1
+FOR EACH ROW
+DECLARE
+        log_action VARCHAR2(50);
+BEGIN
+        log_action :=
+        CASE
+        WHEN
+                updating
+        THEN
+                'UPDATE'
+        WHEN
+                deleting
+        THEN
+                'DELETE'
+        END;
+        INSERT INTO costevaluations_log
+                (
+                        attempted_by,
+                        log_date    ,
+                        action
+                )
+        VALUES
+                (
+                        user   ,
+                        sysdate,
+                        log_action
+                )
+        ;
+END;
+/
+--VIEW FOR BUDGET WITH ID NUMBER
+CREATE OR REPLACE VIEW see_budget
+AS
+SELECT
+        cost_id,
+        fixed_budget
+FROM
+        cost1;
+/
+--VIEW FOR EMPLOYEE INFORMATION
+CREATE OR REPLACE VIEW see_curemployee
+AS
+SELECT
+        name
+FROM
+        employee;
+--DDL ENDS

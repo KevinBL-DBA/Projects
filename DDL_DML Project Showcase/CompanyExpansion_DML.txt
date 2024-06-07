@@ -1,0 +1,927 @@
+--Kevin Litchmore
+--DML Inserts
+--Only one company due to the business model of the ERD
+INSERT INTO company
+        (
+                company_id,
+                name      ,
+                address   ,
+                dsn_phone ,
+                emergency_phone
+        )
+VALUES
+        (
+                company_seq.NEXTVAL,
+                'CANDID.inc'       ,
+                '123 smith st'     ,
+                '123-555-6677'     ,
+                '123-456-7127'
+        )
+;
+--Insert to populate department
+INSERT INTO department
+        (
+                dept_id         ,
+                name            ,
+                department_email,
+                phone           ,
+                budget
+        )
+VALUES
+        (
+                department_seq.NEXTVAL,
+                'FINANCE'             ,
+                'FINANCE@CANDIDNE.COM',
+                '123-123-1236'        ,
+                '6000'
+        )
+;
+INSERT INTO department
+        (
+                dept_id         ,
+                name            ,
+                department_email,
+                phone           ,
+                budget
+        )
+VALUES
+        (
+                department_seq.NEXTVAL   ,
+                'DIGITAL MARKETING'      ,
+                'MARKETING.@CANDIDNE.COM',
+                '123-123-1237'           ,
+                '7000'
+        )
+;
+INSERT INTO department
+        (
+                dept_id         ,
+                name            ,
+                department_email,
+                phone           ,
+                budget
+        )
+VALUES
+        (
+                department_seq.NEXTVAL,
+                'LEGAL'               ,
+                'LEGAL.@CANDIDNE.COM' ,
+                '123-123-1239'        ,
+                '8000'
+        )
+;
+INSERT INTO department
+        (
+                dept_id         ,
+                name            ,
+                department_email,
+                phone           ,
+                budget
+        )
+VALUES
+        (
+                department_seq.NEXTVAL     ,
+                'ENGINNERING'              ,
+                'ENGINNERING.@CANDIDNE.COM',
+                '123-123-1239'             ,
+                '9000'
+        )
+;
+INSERT INTO department
+        (
+                dept_id         ,
+                name            ,
+                department_email,
+                phone           ,
+                budget
+        )
+VALUES
+        (
+                department_seq.NEXTVAL            ,
+                'CUSTOMER RELATIONS'              ,
+                'CUSTOMER_RELATIONS.@CANDIDNE.COM',
+                '123-123-2231'                    ,
+                '6050'
+        )
+;
+INSERT INTO department
+        (
+                dept_id         ,
+                name            ,
+                department_email,
+                phone           ,
+                budget
+        )
+VALUES
+        (
+                department_seq.NEXTVAL ,
+                'SUPPORT'              ,
+                'SUPPORT.@CANDIDNE.COM',
+                '123-123-2232'         ,
+                '6070'
+        )
+;
+INSERT INTO department
+        (
+                dept_id         ,
+                name            ,
+                department_email,
+                phone           ,
+                budget
+        )
+VALUES
+        (
+                department_seq.NEXTVAL    ,
+                'NETWORKING'              ,
+                'NETWORKING.@CANDIDNE.COM',
+                '123-123-2233'            ,
+                '600'
+        )
+;
+INSERT INTO department
+        (
+                dept_id         ,
+                name            ,
+                department_email,
+                phone           ,
+                budget
+        )
+VALUES
+        (
+                department_seq.NEXTVAL ,
+                'SYSTEMS'              ,
+                'SYSTEMS.@CANDIDNE.COM',
+                '123-123-2234'         ,
+                '8700'
+        )
+;
+INSERT INTO department
+        (
+                dept_id         ,
+                name            ,
+                department_email,
+                phone           ,
+                budget
+        )
+VALUES
+        (
+                department_seq.NEXTVAL     ,
+                'AQUISITIONS'              ,
+                'AQUISITIONS.@CANDIDNE.COM',
+                '123-123-1222'             ,
+                '9600'
+        )
+;
+INSERT INTO department
+        (
+                dept_id         ,
+                name            ,
+                department_email,
+                phone           ,
+                budget
+        )
+VALUES
+        (
+                department_seq.NEXTVAL,
+                'GLOBAL'              ,
+                'GLOBAL.@CANDIDNE.COM',
+                '123-123-1233'        ,
+                '1000'
+        )
+;
+--Insert into poplulation for cost1
+INSERT INTO cost1
+        (
+                cost_id        ,
+                approval_date  ,
+                approval_status,
+                fixed_budget   ,
+                variable_budget
+        )
+VALUES
+        (
+                cost_seq.NEXTVAL                     ,
+                TO_DATE('26-FEB-2023', 'DD-MON-YYYY'),
+                'APPROVED'                           ,
+                '1000'                               ,
+                '300'
+        )
+;
+INSERT INTO cost1
+        (
+                cost_id        ,
+                approval_date  ,
+                approval_status,
+                fixed_budget   ,
+                variable_budget
+        )
+VALUES
+        (
+                cost_seq.NEXTVAL                     ,
+                TO_DATE('27-FEB-2023', 'DD-MON-YYYY'),
+                'DENIED'                             ,
+                '2000'                               ,
+                '100'
+        )
+;
+INSERT INTO cost1
+        (
+                cost_id        ,
+                approval_date  ,
+                approval_status,
+                fixed_budget   ,
+                variable_budget
+        )
+VALUES
+        (
+                cost_seq.NEXTVAL                     ,
+                TO_DATE('28-FEB-2023', 'DD-MON-YYYY'),
+                'APPROVED'                           ,
+                '3000'                               ,
+                '1000'
+        )
+;
+INSERT INTO cost1
+        (
+                cost_id        ,
+                approval_date  ,
+                approval_status,
+                fixed_budget   ,
+                variable_budget
+        )
+VALUES
+        (
+                cost_seq.NEXTVAL                    ,
+                TO_DATE('1-FEB-2023', 'DD-MON-YYYY'),
+                'APPROVED'                          ,
+                '4000'                              ,
+                '4000'
+        )
+;
+INSERT INTO cost1
+        (
+                cost_id        ,
+                approval_date  ,
+                approval_status,
+                fixed_budget   ,
+                variable_budget
+        )
+VALUES
+        (
+                cost_seq.NEXTVAL                    ,
+                TO_DATE('2-OCT-2023', 'DD-MON-YYYY'),
+                'DENIED'                            ,
+                '5000'                              ,
+                '600'
+        )
+;
+INSERT INTO cost1
+        (
+                cost_id        ,
+                approval_date  ,
+                approval_status,
+                fixed_budget   ,
+                variable_budget
+        )
+VALUES
+        (
+                cost_seq.NEXTVAL                    ,
+                TO_DATE('8-FEB-2023', 'DD-MON-YYYY'),
+                'APPROVED'                          ,
+                '6000'                              ,
+                '700'
+        )
+;
+INSERT INTO cost1
+        (
+                cost_id        ,
+                approval_date  ,
+                approval_status,
+                fixed_budget   ,
+                variable_budget
+        )
+VALUES
+        (
+                cost_seq.NEXTVAL                    ,
+                TO_DATE('4-NOV-2023', 'DD-MON-YYYY'),
+                'DENIED'                            ,
+                '7000'                              ,
+                '800'
+        )
+;
+INSERT INTO cost1
+        (
+                cost_id        ,
+                approval_date  ,
+                approval_status,
+                fixed_budget   ,
+                variable_budget
+        )
+VALUES
+        (
+                cost_seq.NEXTVAL                    ,
+                TO_DATE('9-FEB-2023', 'DD-MON-YYYY'),
+                'APPROVED'                          ,
+                '7100'                              ,
+                '900'
+        )
+;
+INSERT INTO cost1
+        (
+                cost_id        ,
+                approval_date  ,
+                approval_status,
+                fixed_budget   ,
+                variable_budget
+        )
+VALUES
+        (
+                cost_seq.NEXTVAL                    ,
+                TO_DATE('4-MAR-2023', 'DD-MON-YYYY'),
+                'DENIED'                            ,
+                '5020'                              ,
+                '200'
+        )
+;
+INSERT INTO cost1
+        (
+                cost_id        ,
+                approval_date  ,
+                approval_status,
+                fixed_budget   ,
+                variable_budget
+        )
+VALUES
+        (
+                cost_seq.NEXTVAL                     ,
+                TO_DATE('26-JAN-2023', 'DD-MON-YYYY'),
+                'APPROVED'                           ,
+                '2400'                               ,
+                '400'
+        )
+;
+INSERT INTO cost1
+        (
+                cost_id        ,
+                approval_date  ,
+                approval_status,
+                fixed_budget   ,
+                variable_budget
+        )
+VALUES
+        (
+                cost_seq.NEXTVAL                     ,
+                TO_DATE('26-MAY-2023', 'DD-MON-YYYY'),
+                'APPROVED'                           ,
+                '4080'                               ,
+                '10'
+        )
+;
+--Insert to populate employee
+INSERT INTO employee
+        (
+                employee_id,
+                name       ,
+                address    ,
+                start_date ,
+                phone
+        )
+VALUES
+        (
+                employee_seq.NEXTVAL                 ,
+                'TIM SMITH'                          ,
+                '123 TEST PL'                        ,
+                TO_DATE('26-FEB-2023', 'DD-MON-YYYY'),
+                '123-123-2345'
+        )
+;
+INSERT INTO employee
+        (
+                employee_id,
+                name       ,
+                address    ,
+                start_date ,
+                phone
+        )
+VALUES
+        (
+                employee_seq.NEXTVAL                 ,
+                'KIM COOK'                           ,
+                '222 GREEN PL'                       ,
+                TO_DATE('26-FEB-2023', 'DD-MON-YYYY'),
+                '123-226-7676'
+        )
+;
+INSERT INTO employee
+        (
+                employee_id,
+                name       ,
+                address    ,
+                start_date ,
+                phone
+        )
+VALUES
+        (
+                employee_seq.NEXTVAL                 ,
+                'COOK SMITH'                         ,
+                '12 PACIFIC PL'                      ,
+                TO_DATE('26-FEB-2023', 'DD-MON-YYYY'),
+                '123-333-7097'
+        )
+;
+INSERT INTO employee
+        (
+                employee_id,
+                name       ,
+                address    ,
+                start_date ,
+                phone
+        )
+VALUES
+        (
+                employee_seq.NEXTVAL                 ,
+                'JIM SHOMES'                         ,
+                '1 TEST ST'                          ,
+                TO_DATE('26-FEB-2023', 'DD-MON-YYYY'),
+                '234-456-0987'
+        )
+;
+INSERT INTO employee
+        (
+                employee_id,
+                name       ,
+                address    ,
+                start_date ,
+                phone
+        )
+VALUES
+        (
+                employee_seq.NEXTVAL                 ,
+                'BRIAN POWERS'                       ,
+                '128 PACIFIC ST'                     ,
+                TO_DATE('26-FEB-2023', 'DD-MON-YYYY'),
+                '123-456-7987'
+        )
+;
+INSERT INTO employee
+        (
+                employee_id,
+                name       ,
+                address    ,
+                start_date ,
+                phone
+        )
+VALUES
+        (
+                employee_seq.NEXTVAL                 ,
+                'ASHLEY SMITH'                       ,
+                '923 NAN PL'                         ,
+                TO_DATE('26-FEB-2023', 'DD-MON-YYYY'),
+                '123-456-7234'
+        )
+;
+INSERT INTO employee
+        (
+                employee_id,
+                name       ,
+                address    ,
+                start_date ,
+                phone
+        )
+VALUES
+        (
+                employee_seq.NEXTVAL                 ,
+                'JOHN SMITH'                         ,
+                '823 GARTH PL'                       ,
+                TO_DATE('26-FEB-2023', 'DD-MON-YYYY'),
+                '234-456-7234'
+        )
+;
+INSERT INTO employee
+        (
+                employee_id,
+                name       ,
+                address    ,
+                start_date ,
+                phone
+        )
+VALUES
+        (
+                employee_seq.NEXTVAL                 ,
+                'TIM GREEN'                          ,
+                '523 TESTLY'                         ,
+                TO_DATE('26-FEB-2023', 'DD-MON-YYYY'),
+                '123-456-2177'
+        )
+;
+INSERT INTO employee
+        (
+                employee_id,
+                name       ,
+                address    ,
+                start_date ,
+                phone
+        )
+VALUES
+        (
+                employee_seq.NEXTVAL                 ,
+                'TOM KIRKLAND'                       ,
+                '5 MESSONIAN PL'                     ,
+                TO_DATE('26-FEB-2023', 'DD-MON-YYYY'),
+                '123-456-7234'
+        )
+;
+INSERT INTO employee
+        (
+                employee_id,
+                name       ,
+                address    ,
+                start_date ,
+                phone
+        )
+VALUES
+        (
+                employee_seq.NEXTVAL                 ,
+                'NIVEA BROWN'                        ,
+                '4 JOHN PL'                          ,
+                TO_DATE('26-FEB-2023', 'DD-MON-YYYY'),
+                '123-123-2345'
+        )
+;
+INSERT INTO employee
+        (
+                employee_id,
+                name       ,
+                address    ,
+                start_date ,
+                phone
+        )
+VALUES
+        (
+                employee_seq.NEXTVAL                 ,
+                'SAM SONITE'                         ,
+                '16 WICKED PL'                       ,
+                TO_DATE('26-FEB-2023', 'DD-MON-YYYY'),
+                '234-456-3377'
+        )
+;
+INSERT INTO employee
+        (
+                employee_id,
+                name       ,
+                address    ,
+                start_date ,
+                phone
+        )
+VALUES
+        (
+                employee_seq.NEXTVAL                 ,
+                'ALKANE POLYNESIA'                   ,
+                '7 STREET'                           ,
+                TO_DATE('26-FEB-2023', 'DD-MON-YYYY'),
+                '123-223-2345'
+        )
+;
+--INSERT POPULATION FOR PARTNER_CO
+INSERT INTO partner_co
+        (
+                partner_id,
+                name      ,
+                dsn_phone ,
+                project_id,
+                cost_id
+        )
+VALUES
+        (
+                partner_co_seq.NEXTVAL,
+                'ONETOONE.INC'        ,
+                '333-243-3456'        ,
+                '1'                   ,
+                '1'
+        )
+;
+INSERT INTO partner_co
+        (
+                partner_id,
+                name      ,
+                dsn_phone ,
+                project_id,
+                cost_id
+        )
+VALUES
+        (
+                partner_co_seq.NEXTVAL,
+                'NORTH.INC'           ,
+                '123-244-3456'        ,
+                '2'                   ,
+                '2'
+        )
+;
+INSERT INTO partner_co
+        (
+                partner_id,
+                name      ,
+                dsn_phone ,
+                project_id,
+                cost_id
+        )
+VALUES
+        (
+                partner_co_seq.NEXTVAL,
+                'PACIFIC.INC'         ,
+                '123-245-3456'        ,
+                '3'                   ,
+                '3'
+        )
+;
+INSERT INTO partner_co
+        (
+                partner_id,
+                name      ,
+                dsn_phone ,
+                project_id,
+                cost_id
+        )
+VALUES
+        (
+                partner_co_seq.NEXTVAL,
+                'UNITED.INC'          ,
+                '123-246-3456'        ,
+                '4'                   ,
+                '4'
+        )
+;
+INSERT INTO partner_co
+        (
+                partner_id,
+                name      ,
+                dsn_phone ,
+                project_id,
+                cost_id
+        )
+VALUES
+        (
+                partner_co_seq.NEXTVAL,
+                'NADA.INC'            ,
+                '444-247-3456'        ,
+                '5'                   ,
+                '5'
+        )
+;
+INSERT INTO partner_co
+        (
+                partner_id,
+                name      ,
+                dsn_phone ,
+                project_id,
+                cost_id
+        )
+VALUES
+        (
+                partner_co_seq.NEXTVAL,
+                'WAIIAN.INC'          ,
+                '144-243-3456'        ,
+                '6'                   ,
+                '6'
+        )
+;
+INSERT INTO partner_co
+        (
+                partner_id,
+                name      ,
+                dsn_phone ,
+                project_id,
+                cost_id
+        )
+VALUES
+        (
+                partner_co_seq.NEXTVAL,
+                'RIBATI.INC'          ,
+                '441-243-3456'        ,
+                '7'                   ,
+                '7'
+        )
+;
+INSERT INTO partner_co
+        (
+                partner_id,
+                name      ,
+                dsn_phone ,
+                project_id,
+                cost_id
+        )
+VALUES
+        (
+                partner_co_seq.NEXTVAL,
+                'LOLUS.INC'           ,
+                '555-243-3456'        ,
+                '8'                   ,
+                '8'
+        )
+;
+INSERT INTO partner_co
+        (
+                partner_id,
+                name      ,
+                dsn_phone ,
+                project_id,
+                cost_id
+        )
+VALUES
+        (
+                partner_co_seq.NEXTVAL,
+                'CALE.INC'            ,
+                '765-243-3456'        ,
+                '9'                   ,
+                '9'
+        )
+;
+INSERT INTO partner_co
+        (
+                partner_id,
+                name      ,
+                dsn_phone ,
+                project_id,
+                cost_id
+        )
+VALUES
+        (
+                partner_co_seq.NEXTVAL,
+                'ILES.INC'            ,
+                '776-243-3456'        ,
+                '10'                  ,
+                '10'
+        )
+;
+--Insert population for projects
+INSERT INTO project
+        (
+                project_id,
+                name      ,
+                startdate ,
+                enddate   ,
+                cost_id
+        )
+VALUES
+        (
+                project_seq.NEXTVAL                  ,
+                'CAN'                                ,
+                TO_DATE('26-FEB-2023', 'DD-MON-YYYY'),
+                TO_DATE('27-may-2023', 'DD-MON-YYYY'),
+                '1'
+        )
+;
+INSERT INTO project
+        (
+                project_id,
+                name      ,
+                startdate ,
+                enddate   ,
+                cost_id
+        )
+VALUES
+        (
+                project_seq.NEXTVAL                  ,
+                'MEME'                               ,
+                TO_DATE('2-FEB-2023', 'DD-MON-YYYY') ,
+                TO_DATE('25-FEB-2023', 'DD-MON-YYYY'),
+                '2'
+        )
+;
+INSERT INTO project
+        (
+                project_id,
+                name      ,
+                startdate ,
+                enddate   ,
+                cost_id
+        )
+VALUES
+        (
+                project_seq.NEXTVAL                  ,
+                'CAN2'                               ,
+                TO_DATE('26-FEB-2023', 'DD-MON-YYYY'),
+                TO_DATE('27-oct-2023', 'DD-MON-YYYY'),
+                '3'
+        )
+;
+INSERT INTO project
+        (
+                project_id,
+                name      ,
+                startdate ,
+                enddate   ,
+                cost_id
+        )
+VALUES
+        (
+                project_seq.NEXTVAL                  ,
+                'WATER'                              ,
+                TO_DATE('26-FEB-2023', 'DD-MON-YYYY'),
+                TO_DATE('27-may-2023', 'DD-MON-YYYY'),
+                '4'
+        )
+;
+INSERT INTO project
+        (
+                project_id,
+                name      ,
+                startdate ,
+                enddate   ,
+                cost_id
+        )
+VALUES
+        (
+                project_seq.NEXTVAL                  ,
+                'EXPAND'                             ,
+                TO_DATE('1-FEB-2023', 'DD-MON-YYYY') ,
+                TO_DATE('27-FEB-2023', 'DD-MON-YYYY'),
+                '5'
+        )
+;
+INSERT INTO project
+        (
+                project_id,
+                name      ,
+                startdate ,
+                enddate   ,
+                cost_id
+        )
+VALUES
+        (
+                project_seq.NEXTVAL                  ,
+                'MOBILIZE'                           ,
+                TO_DATE('26-FEB-2023', 'DD-MON-YYYY'),
+                TO_DATE('27-nov-2023', 'DD-MON-YYYY'),
+                '6'
+        )
+;
+INSERT INTO project
+        (
+                project_id,
+                name      ,
+                startdate ,
+                enddate   ,
+                cost_id
+        )
+VALUES
+        (
+                project_seq.NEXTVAL                  ,
+                'EVOL'                               ,
+                TO_DATE('26-FEB-2023', 'DD-MON-YYYY'),
+                TO_DATE('27-may-2023', 'DD-MON-YYYY'),
+                '7'
+        )
+;
+INSERT INTO project
+        (
+                project_id,
+                name      ,
+                startdate ,
+                enddate   ,
+                cost_id
+        )
+VALUES
+        (
+                project_seq.NEXTVAL                  ,
+                'DRAGON'                             ,
+                TO_DATE('26-FEB-2023', 'DD-MON-YYYY'),
+                TO_DATE('27-jul-2023', 'DD-MON-YYYY'),
+                '8'
+        )
+;
+INSERT INTO project
+        (
+                project_id,
+                name      ,
+                startdate ,
+                enddate   ,
+                cost_id
+        )
+VALUES
+        (
+                project_seq.NEXTVAL                  ,
+                'NEXTGEN'                            ,
+                TO_DATE('26-jan-2023', 'DD-MON-YYYY'),
+                TO_DATE('27-FEB-2023', 'DD-MON-YYYY'),
+                '9'
+        )
+;
+INSERT INTO project
+        (
+                project_id,
+                name      ,
+                startdate ,
+                enddate   ,
+                cost_id
+        )
+VALUES
+        (
+                project_seq.NEXTVAL                  ,
+                'BLUE'                               ,
+                TO_DATE('26-FEB-2023', 'DD-MON-YYYY'),
+                TO_DATE('27-jun-2023', 'DD-MON-YYYY'),
+                '10'
+        )
+;
+--end of DML insert

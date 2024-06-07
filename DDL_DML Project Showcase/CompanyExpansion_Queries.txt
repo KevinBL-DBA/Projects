@@ -1,0 +1,226 @@
+--Kevin Litchmore
+--Query 1: Select all columns and all rows from one table.
+SELECT
+        *
+FROM
+        EMPLOYEE;
+--Query 2: Select five columns and all rows from one table.
+SELECT
+        dept_id         ,
+        budget          ,
+        department_email,
+        name            ,
+        phone
+FROM
+        department;
+--Query 3: Select all columns from all rows from one view.
+select
+        *
+from
+        see_budget;
+--Query 4: Using a join on 2 tables, select all columns and all rows from the tables without the use of a Cartesian product.
+Select
+        *
+from
+        project
+left outer join
+        cost1
+on
+        project.cost_id=cost1.cost_id;
+--Query 5: Select and order data retrieved from one table.
+Select
+        employee_id,
+        name       ,
+        COUNT(DISTINCT employee_id) AS NumberofEmployees
+from
+        employee
+GROUP BY
+        employee_id,
+        name
+order by
+        NumberofEmployees desc;
+--Query 6: Using a join on 3 tables, select 5 columns from the 3 tables. Use syntax that would limit the output to 10 rows.
+Select
+        project.Project_ID,
+        project.Name      ,
+        project.Startdate ,
+        project.enddate   ,
+        project.cost_id
+from
+        project
+left outer join
+        cost1
+on
+        project.cost_id=cost1.cost_id
+left outer join
+        partner_co
+on
+        project.project_id=partner_co.project_id
+fetch   next 10 rows only;
+--Query 7: Select distinct rows using joins on 3 tables.
+Select
+        project.name                                                               as projectname  ,
+        partner_co.name                                                            as partnername  ,
+        count(distinct project.project_id)                                         as project_count,
+        count(distinct partner_co.partner_ID)                                      as partner_count,
+        count(distinct project.project_id) + count(distinct partner_co.partner_ID) as projectsandpartners
+from
+        project
+left outer join
+        cost1
+on
+        project.cost_id=cost1.cost_id
+left outer join
+        partner_co
+on
+        project.project_id=partner_co.project_id
+group by
+        project.name ,
+        partner_co.name
+order by
+        projectsandpartners;
+--Query 8: Use GROUP BY and HAVING in a select statement using one or more tables.
+SELECT
+        NAME,
+        COUNT(EMPLOYEE_ID) AS EMPLOYEE_NUM
+FROM
+        EMPLOYEE
+GROUP BY
+        NAME
+HAVING
+        COUNT(EMPLOYEE_ID)>=1
+ORDER BY
+        EMPLOYEE_NUM ASC;
+--Query 9: Use IN clause to select data from one or more tables.
+SELECT
+        *
+FROM
+        EMPLOYEE
+WHERE
+        NAME IN ('TIM SMITH');
+--Query 10: Select length of one column from one table (use LENGTH function).
+select
+        max(length (employee_id))
+from
+        employee;
+--Query 11: Delete one record from one table. Use select statements to demonstrate the table contents before and after the DELETE statement. Make sure you use ROLLBACK afterwards so that the data will not be physically removed.
+SELECT
+        *
+FROM
+        EMPLOYEE;
+DELETE
+FROM
+        EMPLOYEE
+WHERE
+        EMPLOYEE_ID=2;
+SELECT
+        *
+FROM
+        EMPLOYEE;
+ROLLBACK;
+SELECT
+        *
+FROM
+        EMPLOYEE;
+--Query 12: Update one record from one table. Use select statements to demonstrate the table contents before and after the UPDATE statement. Make sure you use ROLLBACK afterwards so that the data will not be physically removed.
+SELECT
+        *
+FROM
+        EMPLOYEE;
+UPDATE
+        EMPLOYEE
+SET
+        NAME = 'KEVIN SMITH'
+WHERE
+        EMPLOYEE_ID = 1;
+ROLLBACK;
+SELECT
+        *
+FROM
+        EMPLOYEE;
+--Perform 8 Additional Advanced Queries.
+--Query 1:Using where statement to specify search
+SELECT
+        name
+FROM
+        employee
+WHERE
+        employee_id ='1';
+--Query 2:Using where statement to specify search range
+SELECT
+        cost_id,
+        (
+                select
+                        min(fixed_budget)
+                from
+                        cost1)as min_cost
+FROM
+        cost1
+WHERE
+        cost_id >=1;
+--Query 3:Finding max cost with where statement
+SELECT
+        cost_id,
+        (
+                select
+                        max(fixed_budget)
+                from
+                        cost1)as max_cost
+FROM
+        cost1
+WHERE
+        cost_id >=1;
+--Query 4:Using group to gather average cost
+SELECT
+        cost_id,
+        (
+                select
+                        avg(fixed_budget)
+                from
+                        cost1)as avg_cost
+FROM
+        cost1
+group by
+        cost_id
+fetch   first row only;
+--Query 5:Using group and having syntax with decending results
+SELECT
+        NAME,
+        COUNT(EMPLOYEE_ID) AS EMPLOYEE_NUM
+FROM
+        EMPLOYEE
+GROUP BY
+        NAME
+HAVING
+        COUNT(EMPLOYEE_ID)>=1
+ORDER BY
+        EMPLOYEE_NUM DESC;
+--Query 7:Using where, group and order clause after a join on two tables
+SELECT
+        PARTNER_CO.NAME,
+        (
+                SELECT
+                        COUNT(PARTNER_ID)
+                FROM
+                        PARTNER_CO) AS PARTNER_NUM
+FROM
+        partner_co
+LEFT OUTER JOIN
+        COST1
+ON
+        PARTNER_CO.COST_ID=COST1.COST_ID
+WHERE
+        COST1.COST_ID>=2
+GROUP BY
+        PARTNER_CO.NAME
+ORDER BY
+        PARTNER_NUM ASC;
+--Query 8:Inner join using two tables
+SELECT
+        *
+FROM
+        PROJECT PJ
+INNER JOIN
+        PARTNER_CO CO
+ON
+        PJ.PROJECT_ID=CO.PROJECT_ID;
