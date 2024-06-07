@@ -8,7 +8,7 @@ Hello! I'm Kevin, a passionate data engineer and cloud enthusiast with a strong 
 I have extensive experience with SQL, particularly in the areas of Data Definition Language (DDL) and Data Manipulation Language (DML). My skills include:
 
 - **DDL (Data Definition Language):**
-  - Creating, altering, and dropping database objects such as Users, tables, indexes and views.
+  - Creating, altering, and dropping database objects such as users, tables, indexes and views.
   - Defining and managing constraints to ensure data integrity.
   - Designing normalized database schemas for optimal performance and maintainability.
 
