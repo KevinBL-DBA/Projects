@@ -1,4 +1,4 @@
-Introduction:
+#### Introduction: <br>
 Create a database that will be able to assist in business growth with expansion plans. The database language is SQL Oracle. The database must have at least five entities as well as five attributes. The database must be scalable due to expansions resulting in the need of more data input within the database. Receiving entity will only be expected to use SQL Oracle DML once the database has been established and delivered. 
 
 Overview:
