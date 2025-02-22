@@ -7,7 +7,6 @@ Candid.inc is a startup technical company that is looking to establish itself gl
 Assumptions:
 The database will be based on the relationship that the company is the main table. This is due to the fact that Candid.inc is solely interested in productivity and costs of the business. In this relationship assumption the partner companies will only be working with Candid.inc on projects to expand the business that internal entities can not handle due to current workloads. Candid.inc has been around for a while, however, this venture is new along with the resources associated with it. Database tables, data manipulations and queries will be executed one at a time with multiple executions opposed from a single unit execution. 
 
- 
 #### Statement of Work <br>
 Scope:
 To establish a database that will serve Candid.inc as a resource to track and manage business expansion. The database will also keep track of finances in relation to internal and external business entities. All business partners will be able to verify their approval status as well as the approval status for active projects they are assigned. All database information can be manipulated by internal parties within Candid.inc.
@@ -19,13 +18,42 @@ Timeline:
 Creation of the database will take approximately one year from start date. During this phase  updates will be provided quarterly. Payment of twenty-five percent will be due at the approval of each submission. 
  
 #### Requirements and Definition <br>
-Entity and Attribute Description:
-Company in the head of the organization that makes the final decisions for the business. Company_ID is the primary key and is used for approvals and financial references. Name is used to identify the company. Address shows the location of the company. DSN_Phone is the land line voice service number to the company. Emergency_Phone is the number to call in case of emergency. 
-Department is the entity within the company that is responsible for different services. Dept_ID is the primary key and is used to isolate one department. Name is associated with service of the department to make the department's service identifiable. Phone is the land line voice service number to the department directly.Budget is the financial responsibility the company has to allocate to each department for the duration of the company. Employee_Count is the number of employees dedicated to the department. 
-Employee are the professionals that are employed at the company. Employee_ID is the primary key and is used to isolate each employee and can be used to verify integrity. Name is the name of the professional that works for the company. Address is the home location of the employee. Phone is the personal number that is used to contact the employee directly. Start_Date is reflecting the date the employee was hired for the company.
-Cost is the additional financial resources the company has for additional tasks. The Cost_ID is the primary key and is associated with the project or the partner company. Approval_Status is the decision by the company if the budget has been approved. Variable_Budget is the extra resources the company has for an approved Cost_ID. The Fixed_Budget is the agreed-on budget based on everything running smoothly. Approved_Date is the date that the budget has been approved. 
-Partner_CO is the additional company that provides services as needed on a contract basis. Partner_ID is the unique identifying ID for each partner company. Name is the name of the partnered company. DSN_Phone is the land line voice service number to the partnered company. FK_Cost_pk_Cost_ID is the foreign key and provides the approved budget for the provided service from the partner company. FK_Project_pk_Project_ID is the other foreign key and is the project reference number that the partnered company has been hired to provide services for. 
-Project is additional tasks that deviates from the normal daily company routine. Project_ID is the unique number that is associated with additional projects and is a primary key. Name is the name of the project used to differentiate the projects to stakeholders. StartDate is the date the project operations start. EndDate is the projected completion date of the project. FK_Cost_pk_Cost_ID is the cost ID that is associated with each project.
+Entity and Attribute Description:  <br>
+Company in the head of the organization that makes the final decisions for the business.  <br>
+Company_ID is the primary key and is used for approvals and financial references.  <br>
+Name is used to identify the company. Address shows the location of the company.  <br>
+DSN_Phone is the land line voice service number to the company.  <br>
+Emergency_Phone is the number to call in case of emergency.  <br>
+Department is the entity within the company that is responsible for different services.  <br>
+Dept_ID is the primary key and is used to isolate one department. <br>
+Name is associated with service of the department to make the department's service identifiable.  <br>
+Phone is the land line voice service number to the department directly. <br>
+Budget is the financial responsibility the company has to allocate to each department for the duration of the company.  <br>
+Employee_Count is the number of employees dedicated to the department.  <br>
+Employee are the professionals that are employed at the company.  <br>
+Employee_ID is the primary key and is used to isolate each employee and can be used to verify integrity.  <br>
+Name is the name of the professional that works for the company. <br>
+Address is the home location of the employee.  <br>
+Phone is the personal number that is used to contact the employee directly.  <br>
+Start_Date is reflecting the date the employee was hired for the company. <br>
+Cost is the additional financial resources the company has for additional tasks. <br>
+The Cost_ID is the primary key and is associated with the project or the partner company. <br>
+Approval_Status is the decision by the company if the budget has been approved.  <br>
+Variable_Budget is the extra resources the company has for an approved Cost_ID.  <br>
+The Fixed_Budget is the agreed-on budget based on everything running smoothly. <br>
+Approved_Date is the date that the budget has been approved.  <br>
+Partner_CO is the additional company that provides services as needed on a contract basis.  <br>
+Partner_ID is the unique identifying ID for each partner company.  <br>
+Name is the name of the partnered company.  <br>
+DSN_Phone is the land line voice service number to the partnered company.  <br>
+FK_Cost_pk_Cost_ID is the foreign key and provides the approved budget for the provided service from the partner company. <br>
+FK_Project_pk_Project_ID is the other foreign key and is the project reference number that the partnered company has been hired to provide services. <br>
+Project is additional tasks that deviates from the normal daily company routine.  <br>
+Project_ID is the unique number that is associated with additional projects and is a primary key.  <br>
+Name is the name of the project used to differentiate the projects to stakeholders.  <br>
+StartDate is the date the project operations start. <br>
+EndDate is the projected completion date of the project.  <br>
+FK_Cost_pk_Cost_ID is the cost ID that is associated with each project. <br>
  
 #### Detailed Design <br>
 Relationship and Cardinality Description:
