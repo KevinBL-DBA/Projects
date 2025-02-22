@@ -8,7 +8,7 @@ Assumptions:
 The database will be based on the relationship that the company is the main table. This is due to the fact that Candid.inc is solely interested in productivity and costs of the business. In this relationship assumption the partner companies will only be working with Candid.inc on projects to expand the business that internal entities can not handle due to current workloads. Candid.inc has been around for a while, however, this venture is new along with the resources associated with it. Database tables, data manipulations and queries will be executed one at a time with multiple executions opposed from a single unit execution. 
 
  
-Statement of Work
+#### Statement of Work <br>
 Scope:
 To establish a database that will serve Candid.inc as a resource to track and manage business expansion. The database will also keep track of finances in relation to internal and external business entities. All business partners will be able to verify their approval status as well as the approval status for active projects they are assigned. All database information can be manipulated by internal parties within Candid.inc.
 
@@ -18,7 +18,7 @@ Populated Oracle SQL code output for the database using test examples will be de
 Timeline:
 Creation of the database will take approximately one year from start date. During this phase  updates will be provided quarterly. Payment of twenty-five percent will be due at the approval of each submission. 
  
-Requirements and Definition
+#### Requirements and Definition <br>
 Entity and Attribute Description:
 Company in the head of the organization that makes the final decisions for the business. Company_ID is the primary key and is used for approvals and financial references. Name is used to identify the company. Address shows the location of the company. DSN_Phone is the land line voice service number to the company. Emergency_Phone is the number to call in case of emergency. 
 Department is the entity within the company that is responsible for different services. Dept_ID is the primary key and is used to isolate one department. Name is associated with service of the department to make the department's service identifiable. Phone is the land line voice service number to the department directly.Budget is the financial responsibility the company has to allocate to each department for the duration of the company. Employee_Count is the number of employees dedicated to the department. 
@@ -27,8 +27,7 @@ Cost is the additional financial resources the company has for additional tasks.
 Partner_CO is the additional company that provides services as needed on a contract basis. Partner_ID is the unique identifying ID for each partner company. Name is the name of the partnered company. DSN_Phone is the land line voice service number to the partnered company. FK_Cost_pk_Cost_ID is the foreign key and provides the approved budget for the provided service from the partner company. FK_Project_pk_Project_ID is the other foreign key and is the project reference number that the partnered company has been hired to provide services for. 
 Project is additional tasks that deviates from the normal daily company routine. Project_ID is the unique number that is associated with additional projects and is a primary key. Name is the name of the project used to differentiate the projects to stakeholders. StartDate is the date the project operations start. EndDate is the projected completion date of the project. FK_Cost_pk_Cost_ID is the cost ID that is associated with each project.
  
-Detailed Design
-
+#### Detailed Design <br>
 Relationship and Cardinality Description:
 Relationship: “Works” between COMPANY and DEPARTMENT
 Cardinality: 1:M between COMPANY and DEPARTMENT
