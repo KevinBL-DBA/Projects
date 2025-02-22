@@ -85,11 +85,11 @@ Relationship: “Authorized” between PROJECT and COST
 Cardinality: 1:M between PROJECT and COST
 Business rule: A project can have many costs; cost can only have one project.
 
-
-Entity Relationship Diagram (ERD)
+#### Entity Relationship Diagram (ERD)
 
 ![Image_Alt](https://github.com/KevinBL-DBA/Projects/blob/eb870799816865fcc5dae1dce5a6eb4001a390f6/ERD.jpg)
-References:
+
+#### References: <br>
 
 Elmasri, R., & Navathe, S. (n.d.). Fundamentals of Database Systems elmasri navathe 3rd 
 edition. Retrieved March 30, 2023, from 
