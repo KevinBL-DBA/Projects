@@ -62,7 +62,7 @@ Business rule: A project can have many costs; cost can only have one project.
 Entity Relationship Diagram (ERD)
 
  
-![Image](https://github.com/user-attachments/assets/9d7f5bc3-2de1-4a4c-8d11-8065df2bbdf3)
+![Image_ALT](https://github.com/KevinBL-DBA/Projects/blob/88296e341740c8ad0e11b4c10852aeefeeb8b63b/ERD.png)
 
 
 
